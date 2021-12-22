@@ -1,9 +1,10 @@
 #include <stdio.h>
 int main(void)
 {
-	int num, result;
-	scanf("%d", &num);
-	result = num * num;
-	printf("%d", result);
+	int num1, num2, result1, result2;
+	scanf("%d %d", &num1, &num2);
+	result1 = num1 / num2;
+	result2 = num1 % num2;
+	printf("%d %d", result1, result2);
 	return 0;
 }
