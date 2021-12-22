@@ -1,7 +1,11 @@
 #include <stdio.h>
 int main(void)
 {
-	printf("My name is HongGildong.\n And I'm %d years old.\nI live in %d-%d address.\n",20,123,456);
-	printf("%dX%d=%d\n%dX%d=%d\n", 4, 5, 20, 7, 9, 63);
+	int num1, num2;
+	int result1, result2;
+	scanf("%d %d", &num1, &num2);
+	result1 = num1 - num2;
+	result2 = num1 * num2;
+	printf("%d-%d=%d\n%dX%d=%d\n", num1, num2, result1,num1, num2, result2);
 	return 0;
 }
