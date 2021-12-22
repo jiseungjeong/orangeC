@@ -1,8 +1,9 @@
 #include <stdio.h>
 int main(void)
 {
-	int num = -16;
-	printf("the result of moving 2 blocks rightside: %d\n",num>>2);
-	printf("the result of moving 3 blocks rightside: %d\n",num>>3);
+	int num=0, result;
+	scanf("%d", &num);
+	result = ~num + 1;
+	printf("result of this process: %d", result);
 	return 0;
 }
