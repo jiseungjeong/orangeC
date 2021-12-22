@@ -1,6 +1,8 @@
 #include <stdio.h>
-int main()
+int main(void)
 {
-	printf("Hello World!");
+	printf("HongGilDong\nHong Gil Dong \nHong  Gil  Dong\n");
+
+	printf("Name: HongGilDong \nAddress: Seoul\nPhoneNumber: 010-1234-6513\n");
 	return 0;
 }
