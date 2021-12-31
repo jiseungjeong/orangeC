@@ -1,13 +1,13 @@
 #include <stdio.h>
 int main(void)
 {
-	int num = -1, total=0;
-	while (num!=0)
+	int num = 9, dan=0;
+	printf("Input dan: ");
+	scanf("%d", &dan);
+	while (num>0)
 	{
-		printf("Input any number: ");
-		scanf("%d", &num);
-		total += num;
+		printf("%d X %d = %d\n", dan, num, dan * num);
+		num--;
 	}
-	printf("total: %d", total);
 	return 0;
 }
