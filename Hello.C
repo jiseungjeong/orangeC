@@ -1,20 +1,17 @@
 #include <stdio.h>
 int main(void)
 {
-	int cnt=0, num=0, total=0;
-	while (cnt<5)
+	int floor=0, oNum=0;
+	while (floor<5)
 	{
-		printf("What number?: ");
-		scanf("%d", &num);
-		while (num<1)
+		oNum = 0;
+		while (oNum<floor)
 		{
-			printf("Input again, your input number is smaller than 1!\n");
-			printf("What number?: ");
-			scanf("%d", &num);
+			printf("o");
+			oNum++;
 		}
-		total += num;
-		cnt++;
+		printf("*\n");
+		floor++;
 	}
-	printf("total: %d", total);
 	return 0;
 }
