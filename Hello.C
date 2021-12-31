@@ -1,13 +1,12 @@
 #include <stdio.h>
 int main(void)
 {
-	int num=0, factorial=1;
-	printf("input factorial number: ");
-	scanf("%d", &num);
-	for (int i = 1; i <= num; i++)
+	for (int i = 1; i <= 100; i++)
 	{
-		factorial *= i;
+		if (i % 7 == 0 || i % 9 == 0)
+		{
+			printf("%d\n", i);
+		}
 	}
-	printf("factorial: %d\n", factorial);
 	return 0;
 }
