@@ -1,16 +1,20 @@
 #include <stdio.h>
 int main(void)
 {
-	int total=0, inputNum=0, cnt=0,num=0;
-	printf("How many numbers do you input: ");
-	scanf("%d", &inputNum);
-	while (cnt<inputNum)
+	int cnt=0, num=0, total=0;
+	while (cnt<5)
 	{
 		printf("What number?: ");
 		scanf("%d", &num);
+		while (num<1)
+		{
+			printf("Input again, your input number is smaller than 1!\n");
+			printf("What number?: ");
+			scanf("%d", &num);
+		}
 		total += num;
 		cnt++;
 	}
-	printf("average: %f", total / (double)inputNum);
+	printf("total: %d", total);
 	return 0;
 }
