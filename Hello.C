@@ -1,10 +1,18 @@
 #include <stdio.h>
 int main(void)
 {
-	int num1 = 0, num2 = 0, bigNum=0, smallNum=0;
-	scanf("%d %d", &num1, &num2);
-	bigNum = (num1 > num2) ? num1 : num2;
-	smallNum = (num1 > num2) ? num2 : num1;
-	printf("%d - %d = %d\n", bigNum, smallNum, bigNum - smallNum);	
+	for (int i = 1; i < 10; i++)
+	{
+		if (i % 2 == 0)
+		{
+			for (int j = 1; j < 10; j++)
+			{
+				if (j > i)
+					break;
+				printf("%d X %d = %d\n", i, j, i * j);
+			}
+		}
+		printf("\n");
+	}
 	return 0;
 }
