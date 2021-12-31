@@ -1,9 +1,13 @@
 #include <stdio.h>
 int main(void)
 {
-	char num=0;
-	printf("enter 1 characters: ");
-	scanf("%c", &num);
-	printf(" it's \"%d\"!", num);
+	int num = 0, cnt=0;
+	printf("Input any number: ");
+	scanf("%d", &num);
+	while (cnt < num)
+	{
+		printf("Hello World!\n");
+		cnt++;
+	}
 	return 0;
 }
