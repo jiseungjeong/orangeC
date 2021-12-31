@@ -1,12 +1,17 @@
 #include <stdio.h>
 int main(void)
 {
-	int num = 0, total=0;
+	int cur = 2;
+	int is = 0;
 	do
 	{
-		total += num;
-		num += 2;
-	} while (num<=100);
-	printf("total: %d\n", total);
+		is = 1;
+		do
+		{
+			printf("%d X %d = %d \n", cur, is, cur * is);
+			is++;
+		} while (is<10);
+		cur++;
+	} while (cur<10);
 	return 0;
 }
