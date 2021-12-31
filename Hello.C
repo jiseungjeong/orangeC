@@ -1,17 +1,13 @@
 #include <stdio.h>
 int main(void)
 {
-	int floor=0, oNum=0;
-	while (floor<5)
+	int total = 0, num = 1;
+	while (num != 0)
 	{
-		oNum = 0;
-		while (oNum<floor)
-		{
-			printf("o");
-			oNum++;
-		}
-		printf("*\n");
-		floor++;
+		printf("input integer number(0 to quit): ");
+		scanf("%d", &num);
+		total += num;
 	}
+	printf("total: %d\n", total);
 	return 0;
 }
