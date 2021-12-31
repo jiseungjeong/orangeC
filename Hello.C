@@ -1,13 +1,13 @@
 #include <stdio.h>
 int main(void)
 {
-	int num1 = 0, num2 = 0, total=0;
-	printf("input 2 numbers: ");
-	scanf("%d %d", &num1, &num2);
-	for (int i = num1; i <= num2; i++)
+	int num=0, factorial=1;
+	printf("input factorial number: ");
+	scanf("%d", &num);
+	for (int i = 1; i <= num; i++)
 	{
-		total += i;
+		factorial *= i;
 	}
-	printf("total: %d\n", total);
+	printf("factorial: %d\n", factorial);
 	return 0;
 }
