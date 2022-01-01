@@ -1,4 +1,5 @@
 #include <stdio.h>
+int GCD(int sNum, int bNum);
 
 int main(void)
 {
