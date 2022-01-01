@@ -1,24 +1,24 @@
 #include <stdio.h>
-int smallestValue(int num1, int num2, int num3);
+double CelToFah(double cel);
+double FahToCel(double fah);
 int main(void)
 {
-	int input1 = 0, input2 = 0, input3 = 0;
-	printf("input 3 numbers: ");
-	scanf("%d %d %d", &input1, &input2, &input3);
-	printf("\nthe smallest value: ");
-	printf("%d\n", smallestValue(input1, input2, input3));
+	double tem = 0;
+	printf("input Celsius or Fahrenheit temperature: ");
+	scanf("%lf", &tem);
+	printf("CelToFah: %f\n", CelToFah(tem));
+	printf("FahToCel: %f\n", FahToCel(tem));
 	return 0;
 }
-int smallestValue(int num1, int num2, int num3)
+
+double CelToFah(double cel)
 {
-	if (num1 < num2 && num1 < num3)
-	{
-		return num1;
-	}
-	else if (num2 < num3)
-	{
-		return num2;
-	}
-	else
-		return num3;
+	double fah = 1.8 * cel + 32;
+	return fah;
+}
+
+double FahToCel(double fah)
+{
+	double cel = (fah - 32) / 1.8;
+	return cel;
 }
