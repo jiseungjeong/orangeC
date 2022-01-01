@@ -1,13 +1,23 @@
 #include <stdio.h>
 int main(void)
 {
-	for (int i = 0; i < 10; i++)
+	int n = 0;
+	printf("input n: ");
+	scanf("%d", &n);
+	n /= 10;
+	switch (n)
 	{
-		for (int j = 0; j < 10; j++)
-		{
-			if ((10 * (i + j) + i + j) == 99)
-				printf("A: %d, Z: %d\n", i, j);
-		}
+	case 0:
+		printf("0 or more and less than 10");
+		break;	
+	case 1:
+		printf("10 or more and less than 20");
+		break;
+	case 2:
+		printf("20 or more and less than 30");
+		break;
+	default:
+		printf("30 or more");
 	}
 	return 0;
 }
