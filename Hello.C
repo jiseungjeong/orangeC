@@ -1,24 +1,26 @@
 #include <stdio.h>
-double CelToFah(double cel);
-double FahToCel(double fah);
+
+int nextPibo(int num1, int num2);
+
 int main(void)
 {
-	double tem = 0;
-	printf("input Celsius or Fahrenheit temperature: ");
-	scanf("%lf", &tem);
-	printf("CelToFah: %f\n", CelToFah(tem));
-	printf("FahToCel: %f\n", FahToCel(tem));
+	int num1 = 0, num2=1, cnt=0, interNum=0;
+	printf("how much piboNum do you print? : ");
+	scanf("%d", &cnt);
+	printf("%d, %d", num1, num2);
+	for (int i = 2; i < cnt; i++)
+	{
+		printf(", %d", nextPibo(num1, num2));
+		interNum = num2;
+		num2 = nextPibo(num1, num2);
+		num1 = interNum;
+	}
+
 	return 0;
 }
 
-double CelToFah(double cel)
+int nextPibo(int num1, int num2)
 {
-	double fah = 1.8 * cel + 32;
-	return fah;
+	return num1 + num2;
 }
 
-double FahToCel(double fah)
-{
-	double cel = (fah - 32) / 1.8;
-	return cel;
-}
