@@ -1,33 +1,17 @@
 #include <stdio.h>
 
-int primeDecision(int num);
 
 int main(void)
 {
-	int primeNum = 10, cnt=0, targetNum=2;
-	while (cnt < primeNum)
-	{
-		if (primeDecision(targetNum) == 1)
-		{
-			cnt++;
-			printf("%d ", targetNum);
-		}
-		targetNum++;
-	}
+	int sec = 0, min=0, hour=0;
+	printf("input seconds: ");
+	scanf("%d", &sec);
+	hour = sec / 3600;
+	sec %= 3600;
+	min = sec / 60;
+	sec %= 60;
+	printf("[h:%d, m:%d, s:%d]", hour, min, sec);
 	return 0;
 }
 
-int primeDecision(int num)
-{
-	int divisorCnt = 0;
-	for (int i = 2; i < num; i++)
-	{
-		if (num % i == 0)
-		{
-			return 0;
-		}
-	}
-	
-	return 1;
-}
 
