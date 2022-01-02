@@ -4,25 +4,21 @@ int powerOfTwo(int num);
 
 int main(void)
 {
-	int n = 0, k;
-	printf("input constant n: ");
+	int n = 0;
+	printf("input integer n: ");
 	scanf("%d", &n);
-	for (k = 0; powerOfTwo(k) < n; k++)
-	{
-		continue;
-	}
-	printf("the maximum of k satisfying the equation: %d", k);
+	printf("2 power %d is %d\n", n, powerOfTwo(n));
 	return 0;
 }
 
 int powerOfTwo(int num)
 {
-	int two = 1;
-	for (int i = 0; i < num; i++)
+	if (num == 0)
 	{
-		two *= 2;
+		return 1;
 	}
-	return two;
+	num -= 1;
+	return 2 * powerOfTwo(num);
 }
 
 
