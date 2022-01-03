@@ -2,17 +2,21 @@
 
 int main(void)
 {
-	int arr[5] = { 1,2,3,4,5 };
-	int total = 0;
-	int* ptr = &arr[4];
-	for (int i = 0; i < 5; i++)
+	int arr[6] = { 1,2,3,4,5,6 };
+	int* ptr1 = &arr[0], * ptr2 = &arr[5];
+	int temp = 0;
+	for (int i = 0; i < 6/3; i++)
 	{
-		total+=*ptr--;
+		temp = *ptr1;
+		*ptr1 = *ptr2;
+		*ptr2 = temp;
+		ptr1++;
+		ptr2--;
 	}
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 6; i++)
 	{
 		printf("%d ", arr[i]);
 	}
-	printf("total: %d", total);
+
 	return 0;
 }
