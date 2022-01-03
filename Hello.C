@@ -1,24 +1,31 @@
 #include <stdio.h>
 
-int powerOfTwo(int num);
-
 int main(void)
 {
-	int n = 0;
-	printf("input integer n: ");
-	scanf("%d", &n);
-	printf("2 power %d is %d\n", n, powerOfTwo(n));
+	int arr[5], total=0, max=0, min=0;
+	for (int i = 0; i < 5; i++)
+	{
+		printf("input %d-th integer element: ", i);
+		scanf("%d", &arr[i]);
+		printf("\n");
+	}
+
+	max = arr[0];
+	min = arr[0];
+	for (int i = 0; i < 5; i++)
+	{
+		total += arr[i];
+
+		if (max < arr[i])
+		{
+			max = arr[i];
+		}
+		if (min > arr[i])
+		{
+			min = arr[i];
+		}
+	}
+	printf("max: %d\nmin: %d\ntotal: %d\n", max, min, total);
 	return 0;
 }
-
-int powerOfTwo(int num)
-{
-	if (num == 0)
-	{
-		return 1;
-	}
-	num -= 1;
-	return 2 * powerOfTwo(num);
-}
-
 
