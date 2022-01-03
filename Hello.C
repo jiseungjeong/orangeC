@@ -2,16 +2,12 @@
 
 int main(void)
 {
-	char str1[] = "My String";
-	char* str2 = "Your String";
-	printf("%s %s \n", str1, str2);
+	int num1 = 10, num2 = 20, num3 = 30;
+	int* arr[3] = { &num1, &num2, &num3 };
 
-	str2 = "Our String";
-	printf("%s %s \n", str1, str2);
-
-	str1[0] = 'X';
-	printf("%s\n", str1);
-	str2[0] = 'X';
-	printf("%s\n", str2);
+	printf("%d \n", *arr[0]);
+	printf("%d \n", *arr[1]);
+	printf("%d \n", *arr[2]);
+	
 	return 0;
 }
