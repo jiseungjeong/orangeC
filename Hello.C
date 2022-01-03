@@ -2,14 +2,15 @@
 
 int main(void)
 {
-	int arr[3] = { 11,22,33 };
-	int* ptr = arr;
-	printf("%d %d %d \n", *ptr, *(ptr + 1), *(ptr + 2));
-
-	printf("%d ", *ptr); ptr++;
-	printf("%d ", *ptr); ptr++;
-	printf("%d ", *ptr); ptr--;
-	printf("%d ", *ptr); ptr--;
-	printf("%d ", *ptr); printf("\n");
+	int arr[5] = { 1,2,3,4,5 };
+	int* ptr = &arr[0];
+	for (int i = 0; i < 5; i++)
+	{
+		*(ptr+i)+=2;
+	}
+	for (int i = 0; i < 5; i++)
+	{
+		printf("%d ", arr[i]);
+	}
 	return 0;
 }
