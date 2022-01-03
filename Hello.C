@@ -6,7 +6,8 @@ int main(void)
 	int* ptr = &arr[0];
 	for (int i = 0; i < 5; i++)
 	{
-		*(ptr+i)+=2;
+		*ptr += 2;
+		ptr++;
 	}
 	for (int i = 0; i < 5; i++)
 	{
