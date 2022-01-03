@@ -2,19 +2,12 @@
 
 int main(void)
 {
-	char str[100] = {0}, interStr = '\0';
-	int len = 0, max=0;
-	scanf("%s", str);
-	while (str[len] != '\0')
-	{
-		len++;
-	}
-	max = (int)str[0];
-	for (int i = 0; i < len; i++)
-	{
-		if ((int)str[i] > max)
-			max = (int)str[i];
-	}
-	printf("%c", max);
+	int num1 = 10, num2 = 20;
+	int* ptr1 = &num1, * ptr2 = &num2;
+	*ptr1+=10;
+	*ptr2-=10;
+	ptr1 = &num2;
+	ptr2 = &num1;
+	printf("ptr1: %d\nptr2: %d\n", *ptr1, *ptr2);
 	return 0;
 }
