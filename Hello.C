@@ -3,19 +3,18 @@
 int main(void)
 {
 	char str[100] = {0}, interStr = '\0';
-	int len = 0;
+	int len = 0, max=0;
 	scanf("%s", str);
 	while (str[len] != '\0')
 	{
 		len++;
 	}
-	for (int j = 1; j < len / 2+1; j++)
+	max = (int)str[0];
+	for (int i = 0; i < len; i++)
 	{
-		interStr = str[len - 1];
-		str[j - 1] = str[len - j];
-		str[len - j] = interStr;
-
+		if ((int)str[i] > max)
+			max = (int)str[i];
 	}
-	printf("reversed array: %s", str);
+	printf("%c", max);
 	return 0;
 }
