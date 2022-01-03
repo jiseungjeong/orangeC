@@ -2,11 +2,13 @@
 
 int main(void)
 {
-	char arr[9] = { 'G','o','o','d',' ','t','i','m','e' };
-	for (int i = 0; i < 9; i++)
+	char str[100];
+	int i = 0;
+	scanf("%s", str);
+	while (str[i] != '\0')
 	{
-		printf("%c", arr[i]);
+		i++;
 	}
+	printf("\nword length: %d", i+1);
 	return 0;
 }
-
