@@ -1,20 +1,17 @@
 #include <stdio.h>
 
-int SquareByValue(int n)
+void Swap3(int* ptr1, int* ptr2, int* ptr3)
 {
-	return n * n;
+	int temp = *ptr1;
+	*ptr1 = *ptr3;
+	*ptr3 = *ptr2;
+	*ptr2 = temp;
 }
 
-void SquareByReference(int* ptr)
-{
-	*ptr = (*ptr) * (*ptr);
-}
 int main(void)
 {
-	int num = 8;
-	printf("%d\n", SquareByValue(num));
-	printf("%d\n", num);
-	SquareByReference(&num);
-	printf("%d\n", num);
+	int num1 = 1, num2 = 2, num3 = 3;
+	Swap3(&num1, &num2, &num3);
+	printf("num1: %d, num2: %d, num3: %d", num1, num2, num3);
 	return 0;
 }
