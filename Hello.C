@@ -2,12 +2,12 @@
 
 int main(void)
 {
-	int num1 = 10, num2 = 20;
-	int* ptr1 = &num1, * ptr2 = &num2;
-	*ptr1+=10;
-	*ptr2-=10;
-	ptr1 = &num2;
-	ptr2 = &num1;
-	printf("ptr1: %d\nptr2: %d\n", *ptr1, *ptr2);
+	int arr1[3] = { 1,2,3 };
+	double arr2[3] = { 1.1, 2.2, 3.3 };
+
+	printf("%d %g \n", *arr1, *arr2);
+	*arr1 += 100;
+	*arr2 += 120.5;
+	printf("%d %g \n", arr1[0], arr2[0]);
 	return 0;
 }
