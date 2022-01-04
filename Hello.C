@@ -1,34 +1,20 @@
 #include <stdio.h>
 
-void DesSort(int ary[], int len)
-{
-	int i, j;
-	int temp;
-	for (i = 0; i < len - 1; i++)
-	{
-		for (j = 0; j < (len - i) - 1; j++)
-		{
-			if (ary[j] < ary[j + 1])
-			{
-				temp = ary[j];
-				ary[j] = ary[j + 1];
-				ary[j + 1] = temp;
-			}
-		}
-	}
-}
 int main(void)
 {
-	int arr[7];
-	for (int i = 0; i < 7; i++)
+	int arr[3][9];
+	for (int i = 0; i < 3; i++)
 	{
-		printf("input: ");
-		scanf("%d", &arr[i]);
+		for (int j = 0; j < 9; j++)
+		{
+			arr[i][j] = (i + 1) * (j + 1);
+		}
 	}
-	DesSort(arr, 7);
-	for (int i = 0; i < 7; i++)
+	for (int i = 0; i < 3; i++)
 	{
-		printf("%d ",arr[i]);
+		for (int j = 0; j < 9; j++)
+			printf("%-3d", arr[i][j]);
+		printf("\n");
 	}
 	return 0;
 }
