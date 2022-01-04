@@ -1,29 +1,31 @@
 #include <stdio.h>
+int strlen(char str[])
+{
+	int i = 0;
+	while (str[i] != 0 && i<100)
+	{
+		i++;
+	}
+	return i;
+}
+void decisionPalindrome(char str[], int len)
+{
+	for (int i = 0; i < len/2; i++)
+	{
+		if (str[i] != str[len - i - 1])
+		{
+			printf("it's not palindrome.");
+			return;
+		}
+	}
+	printf("it's palindrome.");
+}
 
 int main(void)
 {
-	int arr[10];
-	int temp = 0;
-	printf("totally 10 numbers input\n");
-	for (int i = 0; i < 10; i++)
-	{
-		printf("input: ");
-		scanf("%d", &arr[i]);
-	}
-	printf("printing of the array elements: ");
-	for (int i = 0; i < 10; i++)
-	{
-		if (arr[i] % 2 == 1)
-		{
-			printf("%d ", arr[i]);
-		}
-	}
-	for (int i = 9; i >= 0; i--)
-	{
-		if (arr[i] % 2 == 0)
-		{
-			printf("%d ", arr[i]);
-		}
-	}
+	char word[100];
+	printf("input string: ");
+	scanf("%s", word);
+	decisionPalindrome(word, strlen(word));
 	return 0;
 }
