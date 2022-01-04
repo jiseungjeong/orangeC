@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void BubbleSort(int ary[], int len)
+void DesSort(int ary[], int len)
 {
 	int i, j;
 	int temp;
@@ -8,7 +8,7 @@ void BubbleSort(int ary[], int len)
 	{
 		for (j = 0; j < (len - i) - 1; j++)
 		{
-			if (ary[j] > ary[j + 1])
+			if (ary[j] < ary[j + 1])
 			{
 				temp = ary[j];
 				ary[j] = ary[j + 1];
@@ -19,14 +19,16 @@ void BubbleSort(int ary[], int len)
 }
 int main(void)
 {
-	int arr[4] = { 3,2,4,1 };
-	int i;
-
-	BubbleSort(arr, sizeof(arr) / sizeof(int));
-	for (i = 0; i < 4; i++)
+	int arr[7];
+	for (int i = 0; i < 7; i++)
 	{
-		printf("%d ", arr[i]);
+		printf("input: ");
+		scanf("%d", &arr[i]);
 	}
-	printf("\n");
+	DesSort(arr, 7);
+	for (int i = 0; i < 7; i++)
+	{
+		printf("%d ",arr[i]);
+	}
 	return 0;
 }
