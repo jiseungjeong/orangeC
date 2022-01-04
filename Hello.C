@@ -1,17 +1,41 @@
 #include <stdio.h>
-
-void Swap3(int* ptr1, int* ptr2, int* ptr3)
+void OddPrint(int ptr[], int len)
 {
-	int temp = *ptr1;
-	*ptr1 = *ptr3;
-	*ptr3 = *ptr2;
-	*ptr2 = temp;
+	printf("print odd number: ");
+	for (int i = 0; i < len; i++)
+	{
+		if (ptr[i] % 2==1)
+		{
+			printf("%d ", ptr[i]);
+		}
+		
+	}
+}
+
+void EvenPrint(int ptr[], int len)
+{
+	printf("print even number: ");
+	for (int i = 0; i < len; i++)
+	{
+		if (ptr[i] % 2 == 0)
+		{
+			printf("%d ", ptr[i]);
+		}
+
+	}
 }
 
 int main(void)
 {
-	int num1 = 1, num2 = 2, num3 = 3;
-	Swap3(&num1, &num2, &num3);
-	printf("num1: %d, num2: %d, num3: %d", num1, num2, num3);
+	int arr[10];
+	printf("input totally 10 numbers\n");
+	for (int i = 0; i < 10; i++)
+	{
+		printf("input: ");
+		scanf("%d", &arr[i]);
+	}
+	OddPrint(arr, 10);
+	printf("\n");
+	EvenPrint(arr, 10);
 	return 0;
 }
