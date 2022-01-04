@@ -1,41 +1,48 @@
 #include <stdio.h>
-void OddPrint(int ptr[], int len)
+
+twoPower(int n)
 {
-	printf("print odd number: ");
-	for (int i = 0; i < len; i++)
+	int two = 1;
+	for (int i = 0; i < n; i++)
 	{
-		if (ptr[i] % 2==1)
-		{
-			printf("%d ", ptr[i]);
-		}
-		
+		two *= 2;
 	}
+	return two;
 }
 
-void EvenPrint(int ptr[], int len)
+maxTwoPower(int n)
 {
-	printf("print even number: ");
-	for (int i = 0; i < len; i++)
+	int i = 0;
+	while (1)
 	{
-		if (ptr[i] % 2 == 0)
+		if (twoPower(i) > n)
 		{
-			printf("%d ", ptr[i]);
+			break;
 		}
-
+		i++;
 	}
+	return i-1;
 }
+
 
 int main(void)
 {
-	int arr[10];
-	printf("input totally 10 numbers\n");
-	for (int i = 0; i < 10; i++)
+	int num = 0, max=0;
+	printf("decimal interger input: ");
+	scanf("%d", &num);
+	max = maxTwoPower(num);
+	for (int i = max; i >= 0; i--)
 	{
-		printf("input: ");
-		scanf("%d", &arr[i]);
+		if (num/twoPower(i)>0)
+		{
+			printf("1");
+			num -= twoPower(i);
+		}
+		else
+		{
+			printf("0");
+		}
 	}
-	OddPrint(arr, 10);
-	printf("\n");
-	EvenPrint(arr, 10);
+
 	return 0;
 }
