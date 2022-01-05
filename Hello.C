@@ -2,29 +2,52 @@
 
 int main(void)
 {
-	int arr[5][5] = {0};
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
+	int mean = 0, i, j;
+	int record[3][3][2] = {
 		{
-			printf("the score of %d-th subject of %d-th student: ", j, i);
-			scanf("%d", &arr[i][j]);
+			{70,80},
+			{94,90},
+			{70,85}
+		},
+		{
+			{83,90},
+			{95,60},
+			{90,82}
+		},
+		{
+			{98,89},
+			{99,94},
+			{91,87}
+		}
+	};
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 2; j++)
+		{
+			mean += record[0][i][j];
 		}
 	}
-	for (int i = 0; i < 4; i++)
+	printf("Total average of A class: %g \n", (double)mean / 6);
+	mean = 0;
+
+	for (i = 0; i < 3; i++)
 	{
-		for (int j = 0; j < 4; j++)
+		for (j = 0; j < 2; j++)
 		{
-			arr[4][j] += arr[i][j];
-			arr[i][4] += arr[i][j];
-			arr[4][4] += arr[i][j];
+			mean += record[1][i][j];
 		}
 	}
-	for (int i = 0; i < 5; i++)
+	printf("Total average of B class: %g \n", (double)mean / 6);
+	mean = 0;
+
+	for (i = 0; i < 3; i++)
 	{
-		for (int j = 0; j < 5; j++)
-			printf("%-3d ", arr[i][j]);
-		printf("\n");
+		for (j = 0; j < 2; j++)
+		{
+			mean += record[2][i][j];
+		}
 	}
+	printf("Total average of C class: %g \n", (double)mean / 6);
+
 	return 0;
 }
