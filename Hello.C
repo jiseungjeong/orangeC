@@ -1,27 +1,33 @@
 #include <stdio.h>
 
-void MaxAndMin(int** dptr1, int** dptr2, int ary[])
-{
-	*dptr1 = &ary[0], *dptr2 = &ary[0];
-	for (int i = 0; i < 5; i++)
-	{
-		if (**dptr1 < ary[i])
-		{
-			*dptr1 = &ary[i];
-		}
-		if (**dptr2 > ary[i])
-		{
-			*dptr2 = &ary[i];
-		}
-	}
-}
-
 int main(void)
 {
-	int* maxPtr;
-	int* minPtr;
-	int arr[5] = { 1,2,3,5,4 };
-	MaxAndMin(&maxPtr, &minPtr, arr);
-	printf("max: %d \nmin: %d", *maxPtr, *minPtr);
+	int arr1[2][2] = {
+		{1,2},{3,4}
+	};
+	int arr2[3][2] = {
+		{1,2},{3,4},{5,6}
+	};
+	int arr3[4][2] = {
+		{1,2},{3,4},{5,6},{7,8}
+	};
+
+	int(*ptr)[2];
+	int i;
+	ptr = arr1;
+	printf("** Show 2,2 arr1 **\n");
+	for (i = 0; i < 2; i++)
+		printf("%d %d \n", ptr[i][0], ptr[i][1]);
+
+	ptr = arr2;
+	printf("** Show 3,2 arr2 **\n");
+	for (i = 0; i < 3; i++)
+		printf("%d %d \n", ptr[i][0], ptr[i][1]);
+	
+	ptr = arr3;
+	printf("** Show 4,2 arr3 **\n");
+	for (i = 0; i < 4; i++)
+		printf("%d %d \n", ptr[i][0], ptr[i][1]);
+
 	return 0;
 }
