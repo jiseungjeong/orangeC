@@ -1,20 +1,24 @@
 #include <stdio.h>
 
+void SimpleAdder(int n1, int n2)
+{
+	printf("%d + %d = %d \n", n1, n2, n1 + n2);
+}
+
+void ShowString(char* str)
+{
+	printf("%s \n", str);
+}
+
 int main(void)
 {
-	int a[3][2] = { {1,2},{3,4},{5,6} };
+	char* str = "Function Pointer";
+	int num1 = 10, num2 = 20;
 
-	printf("a[0]: %p \n", a[0]);
-	printf("*(a+0): %p \n", *(a + 0));
+	void (*fptr1)(int, int) = SimpleAdder;
+	void (*fptr2)(char*) = ShowString;
 
-	printf("a[1]: %p \n", a[1]);
-	printf("*(a+1): %p \n", *(a + 1));
-
-	printf("a[2]: %p \n", a[2]);
-	printf("*(a+2): %p \n", *(a + 2));
-
-	printf("%d, %d \n", a[2][1], (*(a + 2))[1]);
-	printf("%d, %d \n", a[2][1], (*(a[2]+1)));
-	printf("%d, %d \n", a[2][1], *(*(a + 2)+1));
+	fptr1(num1, num2);
+	fptr2(str);
 	return 0;
 }
