@@ -1,13 +1,21 @@
 #include <stdio.h>
 
-int main(int argc, char *argv[])
+void ShowAllString(int argc, char* argv[])
 {
-	int i = 0;
-	printf("the number of the returned string: %d \n", argc);
-
+	int i;
 	for (i = 0; i < argc; i++)
 	{
-		printf("%d-th string: %s \n", i + 1, argv[i]);
+		printf("%s \n", argv[i]);
 	}
+}
+
+int main(int argc, char *argv[])
+{
+	char* str[3] = {
+		"C Programming",
+		"C++ Programming",
+		"JAVA Programming"
+	};
+	ShowAllString(3, str);
 	return 0;
 }
