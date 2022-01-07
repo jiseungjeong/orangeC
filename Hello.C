@@ -1,14 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main(void)
 {
-	int seed, i;
-	printf("input the value of seed: ");
-	scanf("%d", &seed);
-	srand(seed);
-
+	int i;
+	srand((int)time(NULL));
 	for (i = 0; i < 5; i++)
-		printf("print the integer number: %d\n", rand());
+		printf("print integer number: %d \n", rand());
 	return 0;
 }
