@@ -1,64 +1,67 @@
 #include <stdio.h>
 
-void ShowArr(int ary[][4])
-{
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-			printf("%3d ", ary[i][j]);
-		printf("\n");
-	}
-	printf("\n");
-}
-
-//void Turn(int(*ary)[4])
-//{
-//	int ara[4][4] = { 0 };
-//	int* ptr = ara;
-//	for (int k = 0; k < 4; k++)
-//	{
-//		for (int i = 0; i < 4; i++)
-//		{
-//			for (int j = 0; j < 4; j++)
-//			{
-//				ara[i][j] = ary[i][3 - j];
-//			}
-//		}
-//
-//		for (int i = 0; i < 4; i++)
-//		{
-//			for (int j = 0; j < 4; j++)
-//			{
-//				ary[i][j] = ara[3 - j][3 - i];
-//			}
-//		}
-//	}
-//	(*ary)[4] = ptr;
-//}
 int main(void)
 {
-	int arr[4][4] = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 };
-	int ara[4][4] = { 0 };
-	ShowArr(arr);
-	for (int k = 0; k < 4; k++)
+	int num = 0, i=1;
+	int nowRow = 0, nowCol = 0;
+	int arr[50][50] = {0};
+	printf("input natural number: ");
+	scanf("%d", &num);
+	while (i != num * num+1)
 	{
-		for (int i = 0; i < 4; i++)
+		while (nowCol < num && arr[nowRow][nowCol] == 0)
 		{
-			for (int j = 0; j < 4; j++)
-			{
-				ara[i][j] = arr[i][3 - j];
-			}
+			arr[nowRow][nowCol] = i;
+			nowCol++;
+			i++;
 		}
 
-		for (int i = 0; i < 4; i++)
+		nowCol--;
+		nowRow++;
+
+		while (nowRow < num && arr[nowRow][nowCol] == 0)
 		{
-			for (int j = 0; j < 4; j++)
-			{
-				arr[i][j] = ara[3-j][3-i];
-			}
+			arr[nowRow][nowCol] = i;
+			nowRow++;
+			i++;
 		}
-	
-		ShowArr(arr);
+
+		nowRow--;
+		nowCol--;
+
+		while (nowCol >= 0 && arr[nowRow][nowCol]==0)
+		{
+			arr[nowRow][nowCol] = i;
+			nowCol--;
+			i++;
+		}
+
+		nowCol++;
+		nowRow--;
+
+		while (nowRow >= 0 && arr[nowRow][nowCol] == 0 )
+		{
+			arr[nowRow][nowCol] = i;
+			nowRow--;
+			i++;
+		}
+		nowRow++;
+		nowCol++;
+		//break;
 	}
+
+	for (int i = 0; i < num; i++)
+	{
+		for (int j = 0; j < num; j++)
+		{
+			printf("%3d", arr[i][j]);
+		}
+		printf("\n");
+	}
+	
+
+		
+		
+	
 	return 0;
 }
