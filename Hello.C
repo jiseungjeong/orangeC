@@ -3,9 +3,12 @@
 
 int main(void)
 {
-	int i;
-	printf("the range of the random number: 0 to %d \n", RAND_MAX);
+	int seed, i;
+	printf("input the value of seed: ");
+	scanf("%d", &seed);
+	srand(seed);
+
 	for (i = 0; i < 5; i++)
-		printf("print the random number: %d \n", rand()%100);
+		printf("print the integer number: %d\n", rand());
 	return 0;
 }
