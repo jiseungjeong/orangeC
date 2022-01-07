@@ -7,6 +7,6 @@ int main(void)
 	int i;
 	srand((int)time(NULL));
 	for (i = 0; i < 5; i++)
-		printf("print integer number: %d \n", rand());
+		printf("the result of the %d die: %d \n", i , rand()%7);
 	return 0;
 }
