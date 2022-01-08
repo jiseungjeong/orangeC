@@ -4,12 +4,16 @@ int main(void)
 {
 	int ch;
 
-	while (1)
+	ch = getchar();
+	if (ch >= 65 && ch <= 90)
 	{
-		ch = getchar();
-		if (ch == EOF)
-			break;
-		putchar(ch);
+		putchar(ch+32);
 	}
+	else if (ch >= 97 && ch <= 122)
+	{
+		putchar(ch-32);
+	}
+	else
+		printf("Error message");
 	return 0;
 }
