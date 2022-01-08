@@ -2,18 +2,15 @@
 
 int main(void)
 {
-	int ch;
+	char* str = "Simple String";
+	printf("1. puts test ------ \n");
+	puts(str);
+	puts("So Simple String");
 
-	ch = getchar();
-	if (ch >= 65 && ch <= 90)
-	{
-		putchar(ch+32);
-	}
-	else if (ch >= 97 && ch <= 122)
-	{
-		putchar(ch-32);
-	}
-	else
-		printf("Error message");
+	printf("2. fputs test ----- \n");
+	fputs(str, stdout); printf("\n");
+	fputs("So simple String", stdout); printf("\n");
+
+	printf("3. end of main ---- \n");
 	return 0;
 }
