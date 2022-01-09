@@ -3,18 +3,16 @@
 
 int main(void)
 {
-	char str1[20] = "1234567890";
-	char str2[20];
-	char str3[5];
+	char str1[20] = "First~";
+	char str2[20] = "Second";
 
-	strcpy(str2, str1);
-	puts(str2);
+	char str3[20] = "Simple num: ";
+	char str4[20] = "1234567890";
 
-	strncpy(str3, str1, sizeof(str3));
-	puts(str3);
+	strcat(str1, str2);
+	puts(str1);
 
-	strncpy(str3, str1, sizeof(str3) - 1);
-	str3[sizeof(str3) - 1] = 0;
+	strncat(str3, str4, 7);
 	puts(str3);
 	return 0;
 }
