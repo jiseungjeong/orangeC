@@ -3,16 +3,23 @@
 
 int main(void)
 {
-	char str1[20] = "First~";
-	char str2[20] = "Second";
+	char str1[20];
+	char str2[20];
+	printf("input string 1: ");
+	scanf("%s", str1);
+	printf("input string 2: ");
+	scanf("%s", str2);
 
-	char str3[20] = "Simple num: ";
-	char str4[20] = "1234567890";
+	if (!strcmp(str1, str2))
+	{
+		puts("two strings are perfectly same.");
+	}
+	else
+	{
+		puts("two strings are not same.");
 
-	strcat(str1, str2);
-	puts(str1);
-
-	strncat(str3, str4, 7);
-	puts(str3);
+		if (!strncmp(str1, str2, 3))
+			puts("But first 3 characters are same");
+	}
 	return 0;
 }
