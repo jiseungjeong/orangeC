@@ -1,25 +1,15 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 
 int main(void)
 {
-	char str1[20];
-	char str2[20];
-	printf("input string 1: ");
-	scanf("%s", str1);
-	printf("input string 2: ");
-	scanf("%s", str2);
+	char str[20];
+	printf("input integer: ");
+	scanf("%s", str);
+	printf("%d \n", atoi(str));
 
-	if (!strcmp(str1, str2))
-	{
-		puts("two strings are perfectly same.");
-	}
-	else
-	{
-		puts("two strings are not same.");
-
-		if (!strncmp(str1, str2, 3))
-			puts("But first 3 characters are same");
-	}
+	printf("input float number: ");
+	scanf("%s", str);
+	printf("%g \n", atof(str));
 	return 0;
 }
