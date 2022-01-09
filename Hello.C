@@ -2,15 +2,13 @@
 
 int main(void)
 {
-	char* str = "Simple String";
-	printf("1. puts test ------ \n");
-	puts(str);
-	puts("So Simple String");
+	char str[7];
+	int i;
 
-	printf("2. fputs test ----- \n");
-	fputs(str, stdout); printf("\n");
-	fputs("So simple String", stdout); printf("\n");
-
-	printf("3. end of main ---- \n");
+	for (i = 0; i < 3; i++)
+	{
+		fgets(str, sizeof(str), stdin);
+		printf("Read %d: %s \n", i + 1, str);
+	}
 	return 0;
 }
