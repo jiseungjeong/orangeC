@@ -2,13 +2,16 @@
 
 int main(void)
 {
-	char str[7];
-	int i;
+	char perID[7];
+	char name[10];
 
-	for (i = 0; i < 3; i++)
-	{
-		fgets(str, sizeof(str), stdin);
-		printf("Read %d: %s \n", i + 1, str);
-	}
+	fputs("id code first 6 nubers input: ", stdout);
+	fgets(perID, sizeof(perID), stdin);
+
+	fputs("name input: ", stdout);
+	fgets(name, sizeof(name), stdin);
+
+	printf("id code: %s \n", perID);
+	printf("name: %s \n", name);
 	return 0;
 }
