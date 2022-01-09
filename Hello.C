@@ -1,23 +1,20 @@
 #include <stdio.h>
+#include <string.h>
 
-void ClearLineFromReadBuffer(void)
+void RemoveBSN(char str[])
 {
-	while (getchar() != '\n');
+	int len = strlen(str);
+	str[len - 1] = 0;
 }
 
 int main(void)
 {
-	char perID[7];
-	char name[10];
+	char str[100];
+	printf("input string: ");
+	fgets(str, sizeof(str), stdin);
+	printf("length: %d, contents: %s \n", strlen(str), str);
 
-	fputs("id code first 6 nubers input: ", stdout);
-	fgets(perID, sizeof(perID), stdin);
-	ClearLineFromReadBuffer();
-
-	fputs("name input: ", stdout);
-	fgets(name, sizeof(name), stdin);
-
-	printf("id code: %s \n", perID);
-	printf("name: %s \n", name);
+	RemoveBSN(str);
+	printf("length: %d, contents: %s \n", strlen(str), str);
 	return 0;
 }
