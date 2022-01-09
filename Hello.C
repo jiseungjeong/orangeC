@@ -1,20 +1,20 @@
 #include <stdio.h>
 #include <string.h>
 
-void RemoveBSN(char str[])
-{
-	int len = strlen(str);
-	str[len - 1] = 0;
-}
-
 int main(void)
 {
-	char str[100];
-	printf("input string: ");
-	fgets(str, sizeof(str), stdin);
-	printf("length: %d, contents: %s \n", strlen(str), str);
+	char str1[20] = "1234567890";
+	char str2[20];
+	char str3[5];
 
-	RemoveBSN(str);
-	printf("length: %d, contents: %s \n", strlen(str), str);
+	strcpy(str2, str1);
+	puts(str2);
+
+	strncpy(str3, str1, sizeof(str3));
+	puts(str3);
+
+	strncpy(str3, str1, sizeof(str3) - 1);
+	str3[sizeof(str3) - 1] = 0;
+	puts(str3);
 	return 0;
 }
