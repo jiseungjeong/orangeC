@@ -6,23 +6,15 @@ typedef struct point
 	int ypos;
 } Point;
 
-void OrgSymTrans(Point* ptr)
-{
-	ptr->xpos = (ptr->xpos) * -1;
-	ptr->ypos = (ptr-> ypos) * -1;
-}
-
-void ShowPosition(Point pos)
-{
-	printf("[%d, %d] \n", pos.xpos, pos.ypos);
-}
-
 int main(void)
 {
-	Point pos = { 7, -5 };
-	OrgSymTrans(&pos);
-	ShowPosition(pos);
-	OrgSymTrans(&pos);
-	ShowPosition(pos);
+	Point pos1 = { 1,2 };
+	Point pos2;
+	pos2 = pos1;
+
+	printf("size: %d \n", sizeof(pos1));
+	printf("[%d, %d] \n", pos1.xpos, pos1.ypos);
+	printf("size: %d \n", sizeof(pos2));
+	printf("[%d, %d] \n", pos2.xpos, pos2.ypos);
 	return 0;
 }
