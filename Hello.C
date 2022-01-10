@@ -1,38 +1,28 @@
 #include <stdio.h>
 
-typedef struct student
+typedef struct point
 {
-	char name[20];
-	char stdnum[20];
-	char school[20];
-	char major[20];
-	int year;
-} Student;
+	int xpos;
+	int ypos;
+} Point;
 
-void ShowStudentInfo(Student* sptr)
+typedef struct circle
 {
-	printf("student name: %s \n", sptr->name);
-	printf("student number: %s \n", sptr->stdnum);
-	printf("school name: %s \n", sptr->school);
-	printf("selected major: %s \n", sptr->major);
-	printf("grade: %d-th", sptr->year);
+	Point cen;
+	double rad;
+} Circle;
+
+void ShowCircleInfo(Circle* cptr)
+{
+	printf("[%d, %d] \n", (cptr->cen).xpos, (cptr->cen).ypos);
+	printf("radius: %g \n\n", cptr->rad);
 }
 
 int main(void)
 {
-	Student arr[7];
-	int i;
-
-	for (i = 0; i < 7; i++)
-	{
-		printf("name: "); scanf("%s", arr[i].name);
-		printf("number: "); scanf("%s", arr[i].stdnum);
-		printf("school: "); scanf("%s", arr[i].school);
-		printf("major: "); scanf("%s", arr[i].major);
-		printf("grade: "); scanf("%d", &arr[i].year);
-	}
-
-	for (i = 0; i < 7; i++)
-		ShowStudentInfo(&arr[i]);
+	Circle c1 = { {1,2},3.5 };
+	Circle c2 = { 2, 4, 3.9 };
+	ShowCircleInfo(&c1);
+	ShowCircleInfo(&c2);
 	return 0;
 }
