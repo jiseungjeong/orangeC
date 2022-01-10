@@ -1,28 +1,37 @@
 #include <stdio.h>
 
-typedef struct dbshort
+typedef enum syllable
 {
-	unsigned short upper;
-	unsigned short lower;
-} DBShort;
+	Do=1, Re=2, Mi=3, Fa=4, So=5, La=6, Ti=7
+} Syllable;
 
-typedef union rdbuf
+void Sound(Syllable sy)
 {
-	int iBuf;
-	char bBuf[4];
-	DBShort sBuf;
-} RDBuf;
+	switch (sy)
+	{
+	case Do:
+		puts("Do is white Doraji."); return;
+	case Re:
+		puts("Re is round record."); return;
+	case Mi:
+		puts("Mi is blue Minari."); return;
+	case Fa:
+		puts("Fa is pretty FarangBird."); return;
+	case So:
+		puts("So is small solBangUl."); return;
+	case La:
+		puts("La is Ladio."); return;
+	case Ti:
+		puts("Ti is zolzol TiNatMul."); return;
+	}
+	puts("Let's sing together~ Do Re Mi Fa Sol La Ti Do Sol Do~ Bomb!!~");
+
+}
 
 int main(void)
 {
-	RDBuf buf;
-	printf("input integer number: ");
-	scanf("%d", &(buf.iBuf));
-
-	printf("upper 2 byte: %u \n", buf.sBuf.upper);
-	printf("lower 2 byte: %u \n", buf.sBuf.lower);
-	printf("upper 1 byte ASCII: %c \n", buf.bBuf[0]);
-	printf("lower 1 byte ASCII: %c \n", buf.bBuf[3]);
-
+	Syllable tone;
+	for (tone = Do; tone <= Ti; tone += 1)
+		Sound(tone);
 	return 0;
 }
