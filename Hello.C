@@ -1,32 +1,38 @@
 #include <stdio.h>
 
-typedef struct point
+typedef struct student
 {
-	int xpos;
-	int ypos;
-} Point;
+	char name[20];
+	char stdnum[20];
+	char school[20];
+	char major[20];
+	int year;
+} Student;
 
-Point AddPoint(Point pos1, Point pos2)
+void ShowStudentInfo(Student* sptr)
 {
-	Point pos = { pos1.xpos + pos2.xpos, pos1.ypos + pos2.ypos };
-	return pos;
-}
-
-Point MinPoint(Point pos1, Point pos2)
-{
-	Point pos = { pos1.xpos - pos2.xpos, pos1.ypos - pos2.ypos };
-	return pos;
+	printf("student name: %s \n", sptr->name);
+	printf("student number: %s \n", sptr->stdnum);
+	printf("school name: %s \n", sptr->school);
+	printf("selected major: %s \n", sptr->major);
+	printf("grade: %d-th", sptr->year);
 }
 
 int main(void)
 {
-	Point pos1 = { 5,6 };
-	Point pos2 = { 2,9 };
-	Point result;
+	Student arr[7];
+	int i;
 
-	result = AddPoint(pos1, pos2);
-	printf("[%d, %d] \n", result.xpos, result.ypos);
-	result = MinPoint(pos1, pos2);
-	printf("[%d, %d] \n", result.xpos, result.ypos);
+	for (i = 0; i < 7; i++)
+	{
+		printf("name: "); scanf("%s", arr[i].name);
+		printf("number: "); scanf("%s", arr[i].stdnum);
+		printf("school: "); scanf("%s", arr[i].school);
+		printf("major: "); scanf("%s", arr[i].major);
+		printf("grade: "); scanf("%d", &arr[i].year);
+	}
+
+	for (i = 0; i < 7; i++)
+		ShowStudentInfo(&arr[i]);
 	return 0;
 }
