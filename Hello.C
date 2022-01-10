@@ -2,17 +2,25 @@
 
 int main(void)
 {
-	FILE* fp = fopen("simple.txt", "wt");
+	char str[30];
+	int ch;
+	FILE* fp = fopen("simple.txt", "rt");
 	if (fp == NULL)
 	{
 		puts("file open failed!");
 		return -1;
 	}
 
-	fputc('A', fp);
-	fputc('B', fp);
-	fputs("My name is Hong \n", fp);
-	fputs("Your name is Yoon \n", fp);
+	ch = fgetc(fp);
+	printf("%c \n", ch);
+	ch = fgetc(fp);
+	printf("%c \n", ch);
+
+	fgets(str, sizeof(str), fp);
+	printf("%s", str);
+	fgets(str, sizeof(str), fp);
+	printf("%s", str);
+
 	fclose(fp);
 	return 0;
 }
