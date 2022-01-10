@@ -1,39 +1,25 @@
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include <math.h>
+
+struct point
+{
+	int xpos;
+	int ypos;
+};
 
 int main(void)
 {
-	char name1[50];
-	char name2[50];
-	int i=0, j=0;
-	gets(name1);
-	gets(name2);
-	while (name1[i] != ' ')
-	{
-		i++;
-	}
-	while (name2[j] != ' ')
-	{
-		j++;
-	}
-	if (i != j)
-		printf("names are diffent!\n");
-	else if (!strncmp(name1, name2, i))
-		printf("names are same!\n");
-	else
-		printf("names are different!\n");
-	while (name1[i] != 0 && name2[j] != 0)
-	{
-		if (name1[i] != name2[j])
-		{
-			printf("ages are different!\n");
-			break;
-		}
-		else if (name1[i + 1] == 0 && name2[j + 1] == 0)
-			printf("ages are same!\n");
-		i++;
-		j++;
-	}
+	struct point pos1, pos2;
+	double distance;
+
+	fputs("point1 pos: ", stdout);
+	scanf("%d %d", &pos1.xpos, &pos1.ypos);
+
+	fputs("point2 pos: ", stdout);
+	scanf("%d %d", &pos2.xpos, &pos2.ypos);
+
+	distance = sqrt((double)((pos1.xpos - pos2.xpos) * (pos1.xpos - pos2.xpos) + (pos1.ypos - pos2.ypos) * (pos1.ypos - pos2.ypos)));
+
+	printf("distance between 2 points is %g", distance);
 	return 0;
 }
