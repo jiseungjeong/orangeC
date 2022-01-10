@@ -7,20 +7,19 @@ struct point
 	int ypos;
 };
 
+struct circle
+{
+	double radius;
+	struct point* center;
+};
+
 int main(void)
 {
-	struct point pos1 = { 1,2 };
-	struct point pos2 = { 100,200 };
-	struct point* pptr = &pos1;
-
-	(*pptr).xpos += 4;
-	(*pptr).ypos += 5;
-	printf("[%d %d] \n", pptr->xpos, pptr->ypos);
-
-	pptr = &pos2;
-	pptr->xpos += 1;
-	pptr->ypos += 2;
-	printf("[%d %d] \n", (*pptr).xpos, (*pptr).ypos);
+	struct point cen = { 2, 7 };
+	double rad = 5.5;
 	
+	struct circle ring = { rad, &cen };
+	printf("radius of circle: %g \n", ring.radius);
+	printf("center of circle [%d %d] \n", (ring.center)->xpos, (ring.center)->ypos);
 	return 0;
 }
