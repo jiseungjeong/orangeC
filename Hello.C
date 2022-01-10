@@ -6,15 +6,27 @@ typedef struct point
 	int ypos;
 } Point;
 
+Point AddPoint(Point pos1, Point pos2)
+{
+	Point pos = { pos1.xpos + pos2.xpos, pos1.ypos + pos2.ypos };
+	return pos;
+}
+
+Point MinPoint(Point pos1, Point pos2)
+{
+	Point pos = { pos1.xpos - pos2.xpos, pos1.ypos - pos2.ypos };
+	return pos;
+}
+
 int main(void)
 {
-	Point pos1 = { 1,2 };
-	Point pos2;
-	pos2 = pos1;
+	Point pos1 = { 5,6 };
+	Point pos2 = { 2,9 };
+	Point result;
 
-	printf("size: %d \n", sizeof(pos1));
-	printf("[%d, %d] \n", pos1.xpos, pos1.ypos);
-	printf("size: %d \n", sizeof(pos2));
-	printf("[%d, %d] \n", pos2.xpos, pos2.ypos);
+	result = AddPoint(pos1, pos2);
+	printf("[%d, %d] \n", result.xpos, result.ypos);
+	result = MinPoint(pos1, pos2);
+	printf("[%d, %d] \n", result.xpos, result.ypos);
 	return 0;
 }
