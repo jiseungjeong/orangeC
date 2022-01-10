@@ -5,21 +5,25 @@ struct point
 {
 	int xpos;
 	int ypos;
-};
-
-struct circle
-{
-	double radius;
-	struct point* center;
+	struct point* ptr;
 };
 
 int main(void)
 {
-	struct point cen = { 2, 7 };
-	double rad = 5.5;
-	
-	struct circle ring = { rad, &cen };
-	printf("radius of circle: %g \n", ring.radius);
-	printf("center of circle [%d %d] \n", (ring.center)->xpos, (ring.center)->ypos);
+	struct point pos1 = { 1,1 };
+	struct point pos2 = { 2,2 };
+	struct point pos3 = { 3,3 };
+
+	pos1.ptr = &pos2;
+	pos2.ptr = &pos3;
+	pos3.ptr = &pos1;
+
+	printf("the relation of connection... \n");
+	printf("connection between [%d, %d] and [%d, %d] \n",
+		pos1.xpos, pos1.ypos, pos1.ptr->xpos, pos1.ptr->ypos);
+	printf("connection between [%d, %d] and [%d, %d] \n",
+		pos2.xpos, pos2.ypos, pos2.ptr->xpos, pos2.ptr->ypos);
+	printf("connection between [%d, %d] and [%d, %d] \n",
+		pos3.xpos, pos3.ypos, pos3.ptr->xpos, pos3.ptr->ypos);
 	return 0;
 }
