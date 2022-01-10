@@ -7,18 +7,18 @@ struct point
 	int ypos;
 };
 
-struct person
-{
-	char name[20];
-	char phoneNum[20];
-	int age;
-};
-
 int main(void)
 {
-	struct point pos = { 10, 20 };
-	struct person man = { "leeSeungGi","010-1212-0001", 21 };
-	printf("%d %d \n", pos.xpos, pos.ypos);
-	printf("%s %s %d \n", man.name, man.phoneNum, man.age);
+	struct point arr[3];
+	int i;
+
+	for (i = 0; i < 3; i++)
+	{
+		printf("input the coordinate of the point: ");
+		scanf("%d %d", &arr[i].xpos, &arr[i].ypos);
+	}
+
+	for (i = 0; i < 3; i++)
+		printf("[%d, %d] ", arr[i].xpos, arr[i].ypos);
 	return 0;
 }
