@@ -4,25 +4,21 @@ typedef struct point
 {
 	int xpos;
 	int ypos;
-} Point;
+}Point;
 
-typedef struct circle
+void SwapPoint(Point* pptr1, Point* pptr2)
 {
-	Point cen;
-	double rad;
-} Circle;
-
-void ShowCircleInfo(Circle* cptr)
-{
-	printf("[%d, %d] \n", (cptr->cen).xpos, (cptr->cen).ypos);
-	printf("radius: %g \n\n", cptr->rad);
+	Point temp = *pptr1;
+	*pptr1 = *pptr2;
+	*pptr2 = temp;
 }
 
 int main(void)
 {
-	Circle c1 = { {1,2},3.5 };
-	Circle c2 = { 2, 4, 3.9 };
-	ShowCircleInfo(&c1);
-	ShowCircleInfo(&c2);
+	Point pos1 = { 2,4 };
+	Point pos2 = { 5,7 };
+	SwapPoint(&pos1, &pos2);
+	printf("[%d, %d]\n", pos1.xpos, pos1.ypos);
+	printf("[%d, %d]\n", pos2.xpos, pos2.ypos);
 	return 0;
 }
