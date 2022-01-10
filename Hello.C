@@ -4,16 +4,21 @@
 
 int main(void)
 {
-	char str[100];
-	int i = 0, total=0;
-	printf("input string: ");
-	scanf("%s", str);
-	while (str[i] != '\0')
-	{
-		if((int)(str[i])>=48&&(int)(str[i])<=57)
-			total=total+(int)(str[i])-48;
-		i++;
-	}
-	printf("total: %d", total);
+	char str1[20];
+	char str2[20];
+	char str3[40];
+
+	fgets(str1, sizeof(str1), stdin);
+	fgets(str2, sizeof(str2), stdin);
+	str1[strlen(str1) - 1] = 0;
+	str2[strlen(str2) - 1] = 0;
+
+
+	strcpy(str3, str1);
+
+	strcat(str3, str2);
+
+	puts(str3);
+
 	return 0;
 }
