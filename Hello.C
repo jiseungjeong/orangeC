@@ -1,31 +1,28 @@
 #include <stdio.h>
 
-typedef struct person
+typedef struct point
 {
-	char name[20];
-	char phoneNum[20];
-	int age;
-} Person;
+	int xpos;
+	int ypos;
+} Point;
 
-void ShowPersonInfo(Person man)
+void OrgSymTrans(Point* ptr)
 {
-	printf("name: %s \n", man.name);
-	printf("phone: %s \n", man.phoneNum);
-	printf("age: %d \n", man.age);
+	ptr->xpos = (ptr->xpos) * -1;
+	ptr->ypos = (ptr-> ypos) * -1;
 }
 
-Person ReadPersonInfo(void)
+void ShowPosition(Point pos)
 {
-	Person man;
-	printf("name? "); scanf("%s", man.name);
-	printf("phone? "); scanf("%s", man.phoneNum);
-	printf("age? "); scanf("%d", &(man.age));
-	return man;
+	printf("[%d, %d] \n", pos.xpos, pos.ypos);
 }
 
 int main(void)
 {
-	Person man = ReadPersonInfo();
-	ShowPersonInfo(man);
+	Point pos = { 7, -5 };
+	OrgSymTrans(&pos);
+	ShowPosition(pos);
+	OrgSymTrans(&pos);
+	ShowPosition(pos);
 	return 0;
 }
