@@ -1,35 +1,25 @@
 #include <stdio.h>
 
-typedef struct point
+typedef struct sbox
 {
-	int xpos;
-	int ypos;
-}Point;
+	int mem1;
+	int mem2;
+	double mem3;
+} SBox;
 
-typedef struct rectangle
+typedef union ubox
 {
-	Point pos1;
-	Point pos2;
-} Rectangle;
-
-void CalArea(Rectangle rec)
-{
-	int area = (rec.pos2.xpos - rec.pos1.xpos) * (rec.pos2.ypos - rec.pos1.ypos);
-	printf("Area: %d\n", area);
-}
-
-void Print4Points(Rectangle rec)
-{
-	printf("[%d, %d]\n", rec.pos1.xpos, rec.pos1.ypos);
-	printf("[%d, %d]\n", rec.pos2.xpos, rec.pos1.ypos);
-	printf("[%d, %d]\n", rec.pos1.xpos, rec.pos2.ypos);
-	printf("[%d, %d]\n", rec.pos2.xpos, rec.pos2.ypos);
-}
+	int mem1;
+	int mem2;
+	double mem3;
+} UBox;
 
 int main(void)
 {
-	Rectangle rec = { 0,0,100,100 };
-	CalArea(rec);
-	Print4Points(rec);
+	SBox sbx;
+	UBox ubx;
+	printf("%p %p %p \n", &sbx.mem1, &sbx.mem2, &sbx.mem3);
+	printf("%p %p %p \n", &ubx.mem1, &ubx.mem2, &ubx.mem3);
+	printf("%d %d \n", sizeof(SBox), sizeof(UBox));
 	return 0;
 }
