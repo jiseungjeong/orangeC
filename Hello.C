@@ -6,19 +6,30 @@ typedef struct point
 	int ypos;
 }Point;
 
-void SwapPoint(Point* pptr1, Point* pptr2)
+typedef struct rectangle
 {
-	Point temp = *pptr1;
-	*pptr1 = *pptr2;
-	*pptr2 = temp;
+	Point pos1;
+	Point pos2;
+} Rectangle;
+
+void CalArea(Rectangle rec)
+{
+	int area = (rec.pos2.xpos - rec.pos1.xpos) * (rec.pos2.ypos - rec.pos1.ypos);
+	printf("Area: %d\n", area);
+}
+
+void Print4Points(Rectangle rec)
+{
+	printf("[%d, %d]\n", rec.pos1.xpos, rec.pos1.ypos);
+	printf("[%d, %d]\n", rec.pos2.xpos, rec.pos1.ypos);
+	printf("[%d, %d]\n", rec.pos1.xpos, rec.pos2.ypos);
+	printf("[%d, %d]\n", rec.pos2.xpos, rec.pos2.ypos);
 }
 
 int main(void)
 {
-	Point pos1 = { 2,4 };
-	Point pos2 = { 5,7 };
-	SwapPoint(&pos1, &pos2);
-	printf("[%d, %d]\n", pos1.xpos, pos1.ypos);
-	printf("[%d, %d]\n", pos2.xpos, pos2.ypos);
+	Rectangle rec = { 0,0,100,100 };
+	CalArea(rec);
+	Print4Points(rec);
 	return 0;
 }
