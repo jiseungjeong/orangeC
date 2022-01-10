@@ -1,25 +1,27 @@
 #include <stdio.h>
 
-struct point
+typedef struct point
 {
 	int xpos;
 	int ypos;
-};
+} Point;
 
-typedef struct point Point;
-
-typedef struct person
+void ShowPosition(Point pos)
 {
-	char name[20];
-	char phoneNum[20];
-	int age;
-} Person;
+	printf("[%d, %d] \n", pos.xpos, pos.ypos);
+}
+
+Point GetCurrentPosition(void)
+{
+	Point cen;
+	printf("Input current pos: ");
+	scanf("%d %d", &cen.xpos, &cen.ypos);
+	return cen;
+}
 
 int main(void)
 {
-	Point pos = { 10, 20 };
-	Person man = { "leeSeungGi", "010-1212-0001", 21 };
-	printf("%d %d \n", pos.xpos, pos.ypos);
-	printf("%s %s %d \n", man.name, man.phoneNum, man.age);
+	Point curPos = GetCurrentPosition();
+	ShowPosition(curPos);
 	return 0;
 }
