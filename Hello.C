@@ -4,21 +4,36 @@
 
 int main(void)
 {
-	char str1[20];
-	char str2[20];
-	char str3[40];
-
-	fgets(str1, sizeof(str1), stdin);
-	fgets(str2, sizeof(str2), stdin);
-	str1[strlen(str1) - 1] = 0;
-	str2[strlen(str2) - 1] = 0;
-
-
-	strcpy(str3, str1);
-
-	strcat(str3, str2);
-
-	puts(str3);
-
+	char name1[50];
+	char name2[50];
+	int i=0, j=0;
+	gets(name1);
+	gets(name2);
+	while (name1[i] != ' ')
+	{
+		i++;
+	}
+	while (name2[j] != ' ')
+	{
+		j++;
+	}
+	if (i != j)
+		printf("names are diffent!\n");
+	else if (!strncmp(name1, name2, i))
+		printf("names are same!\n");
+	else
+		printf("names are different!\n");
+	while (name1[i] != 0 && name2[j] != 0)
+	{
+		if (name1[i] != name2[j])
+		{
+			printf("ages are different!\n");
+			break;
+		}
+		else if (name1[i + 1] == 0 && name2[j + 1] == 0)
+			printf("ages are same!\n");
+		i++;
+		j++;
+	}
 	return 0;
 }
