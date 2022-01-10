@@ -1,22 +1,24 @@
 #include <stdio.h>
 #include <string.h>
 
-struct employee
+struct point
+{
+	int xpos;
+	int ypos;
+};
+
+struct person
 {
 	char name[20];
-	char id[20];
-	int salaryInfo;
+	char phoneNum[20];
+	int age;
 };
 
 int main(void)
 {
-	struct employee employee1;
-	printf("input employee name: "); scanf("%s", employee1.name);
-	printf("input employee id: "); scanf("%s", employee1.id);
-	printf("input employee salaryInfo: "); scanf("%d", &(employee1.salaryInfo));
-
-	printf("name: %s\n", employee1.name);
-	printf("id: %s\n", employee1.id);
-	printf("salaryInfo: %d\n", employee1.salaryInfo);
+	struct point pos = { 10, 20 };
+	struct person man = { "leeSeungGi","010-1212-0001", 21 };
+	printf("%d %d \n", pos.xpos, pos.ypos);
+	printf("%s %s %d \n", man.name, man.phoneNum, man.age);
 	return 0;
 }
