@@ -8,22 +8,19 @@ struct point
 	struct point* ptr;
 };
 
+struct person
+{
+	char name[20];
+	char phoneNum[20];
+	int age;
+};
+
 int main(void)
 {
-	struct point pos1 = { 1,1 };
-	struct point pos2 = { 2,2 };
-	struct point pos3 = { 3,3 };
+	struct point pos = { 10, 20 };
+	struct person man = { "leeSeungGi", "010-1212-0001",21 };
 
-	pos1.ptr = &pos2;
-	pos2.ptr = &pos3;
-	pos3.ptr = &pos1;
-
-	printf("the relation of connection... \n");
-	printf("connection between [%d, %d] and [%d, %d] \n",
-		pos1.xpos, pos1.ypos, pos1.ptr->xpos, pos1.ptr->ypos);
-	printf("connection between [%d, %d] and [%d, %d] \n",
-		pos2.xpos, pos2.ypos, pos2.ptr->xpos, pos2.ptr->ypos);
-	printf("connection between [%d, %d] and [%d, %d] \n",
-		pos3.xpos, pos3.ypos, pos3.ptr->xpos, pos3.ptr->ypos);
+	printf("%p %p \n", &pos, &pos.xpos);
+	printf("%p %p \n", &man, man.name);
 	return 0;
 }
