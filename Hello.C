@@ -2,20 +2,17 @@
 
 int main(void)
 {
-	int ch, i;
-	FILE* fp = fopen("data.txt", "rt");
+	FILE* fp = fopen("simple.txt", "wt");
 	if (fp == NULL)
 	{
 		puts("file open failed!");
 		return -1;
 	}
 
-	for (i = 0; i < 3; i++)
-	{
-		ch = fgetc(fp);
-		printf("%c \n", ch);
-	}
-
+	fputc('A', fp);
+	fputc('B', fp);
+	fputs("My name is Hong \n", fp);
+	fputs("Your name is Yoon \n", fp);
 	fclose(fp);
 	return 0;
 }
