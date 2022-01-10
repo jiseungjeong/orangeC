@@ -1,23 +1,29 @@
 #include <stdio.h>
 #include <string.h>
 
-struct person
+struct employee
 {
 	char name[20];
-	char phoneNum[20];
-	int age;
+	char id[20];
+	int salaryInfo;
 };
 
 int main(void)
 {
-	struct person arr[3] = {
-		{"leeSeungGi", "010-1212-0001",21},
-		{"jeongJiYoung", "010-1313-0002", 22},
-		{"hanJiSu","010-1717-0003", 19}
-	};
-
-	int i;
-	for (i = 0; i < 3; i++)
-		printf("%-12s %s %d \n", arr[i].name, arr[i].phoneNum, arr[i].age);
+	struct employee arr[3];
+	for (int i = 0; i < 3; i++)
+	{
+		printf("input employee name: "); scanf("%s", arr[i].name);
+		printf("input employee id: "); scanf("%s", arr[i].id);
+		printf("input employee salaryInfo: "); scanf("%d", &(arr[i].salaryInfo));
+	}
+	
+	for (int i = 0; i < 3; i++)
+	{
+		printf("name: %s\n", arr[i].name);
+		printf("id: %s\n", arr[i].id);
+		printf("salaryInfo: %d\n", arr[i].salaryInfo);
+	}
+	
 	return 0;
 }
