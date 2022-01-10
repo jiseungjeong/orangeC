@@ -1,29 +1,26 @@
 #include <stdio.h>
 #include <string.h>
 
-struct employee
+struct point
 {
-	char name[20];
-	char id[20];
-	int salaryInfo;
+	int xpos;
+	int ypos;
 };
 
 int main(void)
 {
-	struct employee arr[3];
-	for (int i = 0; i < 3; i++)
-	{
-		printf("input employee name: "); scanf("%s", arr[i].name);
-		printf("input employee id: "); scanf("%s", arr[i].id);
-		printf("input employee salaryInfo: "); scanf("%d", &(arr[i].salaryInfo));
-	}
-	
-	for (int i = 0; i < 3; i++)
-	{
-		printf("name: %s\n", arr[i].name);
-		printf("id: %s\n", arr[i].id);
-		printf("salaryInfo: %d\n", arr[i].salaryInfo);
-	}
+	struct point pos1 = { 1,2 };
+	struct point pos2 = { 100,200 };
+	struct point* pptr = &pos1;
+
+	(*pptr).xpos += 4;
+	(*pptr).ypos += 5;
+	printf("[%d %d] \n", pptr->xpos, pptr->ypos);
+
+	pptr = &pos2;
+	pptr->xpos += 1;
+	pptr->ypos += 2;
+	printf("[%d %d] \n", (*pptr).xpos, (*pptr).ypos);
 	
 	return 0;
 }
