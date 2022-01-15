@@ -2,25 +2,25 @@
 
 int main(void)
 {
-	char str[30];
+	FILE* src = fopen("src.txt", "rt");
+	FILE* des = fopen("dst.txt", "wt");
 	int ch;
-	FILE* fp = fopen("simple.txt", "rt");
-	if (fp == NULL)
+
+	if (src == NULL || des == NULL)
 	{
 		puts("file open failed!");
 		return -1;
 	}
 
-	ch = fgetc(fp);
-	printf("%c \n", ch);
-	ch = fgetc(fp);
-	printf("%c \n", ch);
+	while ((ch = fgetc(src)) != EOF)
+		fputc(ch, des);
 
-	fgets(str, sizeof(str), fp);
-	printf("%s", str);
-	fgets(str, sizeof(str), fp);
-	printf("%s", str);
+	if (feof(src) != 0)
+		puts("file copy is completed!");
+	else
+		puts("file copy failed!");
 
-	fclose(fp);
+	fclose(src);
+	fclose(des);
 	return 0;
 }
