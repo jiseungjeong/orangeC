@@ -1,16 +1,20 @@
 #include <stdio.h>
-#include <string.h>
+
 int main(void)
 {
-	FILE* fp = fopen("mystery.txt", "rt");
-	char str[20];
-	if (fp == NULL)
+	char name[10];
+	char sex;
+	int age;
+
+	FILE* fp = fopen("friend.txt", "wt");
+	int i;
+
+	for (i = 0; i < 3; i++)
 	{
-		puts("file open failed!");
-		return -1;
-	}
-	while (fgets(str, sizeof(str), fp) != NULL) {
-		printf("%s", str);
+		printf("name sex age order input: ");
+		scanf("%s %c %d", &name, &sex, &age);
+		getchar(); // to delete the left \n
+		fprintf(fp, "%s %c %d", name, sex, age);
 	}
 
 	fclose(fp);
