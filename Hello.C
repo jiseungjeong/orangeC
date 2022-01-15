@@ -1,27 +1,22 @@
 #include <stdio.h>
 
-typedef struct fren
-{
-	char name[10];
-	char sex;
-	int age;
-} Friend;
-
 int main(void)
 {
-	FILE* fp;
-	Friend myfren1;
-	Friend myfren2;
-
-	fp = fopen("friend.bin", "wb");
-	printf("name, sex, age order input: ");
-	scanf("%s %c %d", myfren1.name, &(myfren1.sex), &(myfren1.age));
-	fwrite((void*)&myfren1, sizeof(myfren1), 1, fp);
+	FILE* fp = fopen("text.txt", "wt");
+	fputs("123456789", fp);
 	fclose(fp);
 
-	fp = fopen("friend.bin", "rb");
-	fread((void*)&myfren2, sizeof(myfren2), 1, fp);
-	printf("%s %c %d \n", myfren2.name, myfren2.sex, myfren2.age);
+	fp = fopen("text.txt", "rt");
+
+	fseek(fp, -2, SEEK_END);
+	putchar(fgetc(fp));
+
+	fseek(fp, 2, SEEK_SET);
+	putchar(fgetc(fp));
+
+	fseek(fp, 2, SEEK_CUR);
+	putchar(fgetc(fp));
+
 	fclose(fp);
 	return 0;
 }
