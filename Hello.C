@@ -6,15 +6,15 @@ int main(void)
 	char sex;
 	int age;
 
-	FILE* fp = fopen("friend.txt", "wt");
-	int i;
+	FILE* fp = fopen("friend.txt", "rt");
+	int ret;
 
-	for (i = 0; i < 3; i++)
+	while(1)
 	{
-		printf("name sex age order input: ");
-		scanf("%s %c %d", &name, &sex, &age);
-		getchar(); // to delete the left \n
-		fprintf(fp, "%s %c %d", name, sex, age);
+		ret = fscanf(fp, "%s %c %d", name, &sex, &age);
+		if (ret == EOF)
+			break;
+		printf("%s %c %d \n", name, sex, age);
 	}
 
 	fclose(fp);
