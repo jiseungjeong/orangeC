@@ -1,24 +1,20 @@
 #include <stdio.h>
 
+int ByteFile(FILE* fp, int set)
+{
+	int i = 0;
+	fseek(fp, 0, SEEK_END);
+	i = ftell(fp);
+	fseek(fp, set, SEEK_SET);
+	return i;
+}
+
 int main(void)
 {
-	long fpos;
-	int i;
-
-	FILE* fp = fopen("text.txt", "wt");
-	fputs("1234-", fp);
-	fclose(fp);
-
-	fp = fopen("text.txt", "rt");
-
-	for (i = 0; i < 4; i++)
-	{
-		putchar(fgetc(fp));
-		fpos = ftell(fp);
-		fseek(fp, -1, SEEK_END);
-		putchar(fgetc(fp));
-		fseek(fp, fpos, SEEK_SET);
-	}
-	fclose(fp);
+	int start, size;
+	FILE* fp = fopen("simple.txt", "rt");
+	start = ftell(fp);
+	size = ByteFile(fp, start);
+	printf("%d", size);
 	return 0;
 }
