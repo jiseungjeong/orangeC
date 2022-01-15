@@ -1,3 +1,5 @@
 #name: yoonSeongWoo
 #id: 900208-1012589
 #phoneNum: 010-1111-2222
+#favorite food: jjamBbong, tangSuYuk
+#hobby: soccer
