@@ -2,22 +2,36 @@
 
 int main(void)
 {
-	FILE* src = fopen("src.txt", "rt");
-	FILE* des = fopen("dst.txt", "wt");
-	char str[20];
+	FILE* src = fopen("src.bin", "rb");
+	FILE* des = fopen("dst.bin", "wb");
+	char buf[20];
+	int readCnt;
 	if (src == NULL || des == NULL)
 	{
 		puts("file open failed!");
 		return -1;
 	}
 
-	while (fgets(str,sizeof(str),src) != NULL)
-		fputc(str, des);
+	while (1)
+	{
+		readCnt = fread((void*)buf, 1, sizeof(buf), src);
 
-	if (feof(src) != 0)
-		puts("file copy is completed!");
-	else
-		puts("file copy failed!");
+		if (readCnt < sizeof(buf))
+		{
+			if (feof(src) != 0)
+			{
+				fwrite((void*)buf, 1, readCnt, des);
+				puts("file copy is completed");
+				break;
+			}
+			else
+			{
+				puts("file copy failed");
+			}
+			break;
+		}
+		fwrite((void*)buf, 1, sizeof(buf), des);
+	}
 
 	fclose(src);
 	fclose(des);
