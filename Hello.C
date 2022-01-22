@@ -1,20 +1,20 @@
 #include <stdio.h>
 
-int ByteFile(FILE* fp, int set)
+char* ReadUserName(void)
 {
-	int i = 0;
-	fseek(fp, 0, SEEK_END);
-	i = ftell(fp);
-	fseek(fp, set, SEEK_SET);
-	return i;
+	char name[30];
+	printf("What's your name? ");
+	gets(name);
+	return name;
 }
 
 int main(void)
 {
-	int start, size;
-	FILE* fp = fopen("simple.txt", "rt");
-	start = ftell(fp);
-	size = ByteFile(fp, start);
-	printf("%d", size);
+	char* name1;
+	char* name2;
+	name1 = ReadUserName();
+	printf("name1: %s \n", name1);
+	name2 = ReadUserName();
+	printf("name2: %s \n", name2);
 	return 0;
 }
